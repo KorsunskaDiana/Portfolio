@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CW2 Interactive website</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <header>
+
+        <div class="edition-bar">
+            <span id="current-date"></span>
+            <span>London, United Kingdom</span>
+            <span>Vol. 01-2026</span>
+        </div>
+
+
+        <div class="masthead">
+            <p>CW2 Interactive website</p>
+            <h1>Diana Korsunska</h1>
+            <p>Personal Portfolio</p>
+        </div>
+
+        <nav class="navigation" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="about.html" aria-current="page">About &amp; Skills</a>
+    <a href="projects.html">Projects</a>
+</nav>
+    </header>
+
+    <main>
+
+            <section class="introduction">
+
+        <p class="section-label">Featured Profile</p>
+
+        <div class="intro-grid">
+
+            <div class="intro-image">
+                <img src="assets/images/Myself1.jpeg"
+                     alt="Portfolio profile photograph">
+            </div>
+
+            <article class="intro-text">
+                <h2>Behind the code: A journey into technology</h2>
+
+                <p>
+                    I am a first year undergraduate student at Goldsmiths,
+                    University of London, specialising in Computer Science (Data Science and Artificial
+                    Intelligence )
+                </p>
+
+                <p>
+                    This portfolio explores my academic journey over past few month,
+                    technical skills development and recent practical projects,
+                    reflecting my growing interest in programming
+                    and technology.
+                </p>
+
+                <a href="about.html" class="read-more">
+                    To be continued &rarr;
+                </a>
+            </article>
+
+        </div>
+    </section>
+
+
+
+    <section class="featured-projects">
+
+    <p class="section-label">The Project Journal</p>
+
+    <h2>From ideas to reality</h2>
+
+    <p class="section-description">
+        Experiments, challenges and lessons along the way.
+    </p>
+
+    <div class="projects-grid">
+
+        <article class="project-card">
+
+            <img src="assets/images/trip.com_screenshot.png"
+                 alt="Screenshot of the travel website">
+
+            <p class="section-label">Web Development</p>
+
+            <h3>Travelling on a budget</h3>
+
+            <p>
+                Travelling doesn't always have to be expensive.
+                That simple idea became the starting point for
+                a website my teammates and I developed.
+            </p>
+
+            <p>
+                What started with a few design ideas soon turned
+                into hours of experimenting with layouts, fixing
+                unexpected errors and learning how to bring
+                separately written pieces of code together without crushing all the pathes.
+            </p>
+
+            <a href="projects.html#travel" class="read-more">
+                Explore project &rarr;
+            </a>
+
+        </article>
+
+        <article class="project-card">
+
+            <img src="assets/images/ocean-project.png"
+                 alt="Underwater game design">
+
+            <p class="section-label">Creative Programming</p>
+
+            <h3>Waterland Life</h3>
+
+            <p>
+                How difficult could it be to bring a tiny shrimp
+                to life on a computer screen? Apparently, a little
+                more difficult than I originally imagined. 
+            
+            <p>  Especially as innitial pixelated design had issues with enlarging (/:),
+                 so I had to switch to way more complex design and use Blender for the character animation and deployment.
+            </p>
+
+            <p>
+                This ongoing project gives me an opportunity
+                to explore game development, experiment with
+                visual design and discover how programming
+                can turn a simple idea into something interactive.
+            </p>
+
+
+            <a href="projects.html#ocean" class="read-more">
+                Explore project &rarr;
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+<section class="skills-preview">
+
+    <p class="section-label">The Technical Column</p>
+
+    <h2>What's in my toolbox?</h2>
+
+    <p class="section-description">
+        A growing collection of languages, tools and things
+        I'm learning along the way.
+    </p>
+
+    <div class="skill-filters" aria-label="Filter skills">
+        <button class="filter-button active"
+                data-filter="all" aria-pressed="true">
+            All
+        </button>
+
+        <button class="filter-button"
+                data-filter="development" aria-pressed="false">
+            Development
+        </button>
+
+        <button class="filter-button"
+                data-filter="tools" aria-pressed="false">
+            Tools
+        </button>
+
+        <button class="filter-button"
+                data-filter="design" aria-pressed="false">
+            Design
+        </button>
+    </div>
+
+    <div class="skills-grid">
+
+        <article class="skill-card" data-category="development">
+            <h3>HTML</h3>
+            <p>Semantic structure and accessibility</p>
+        </article>
+
+        <article class="skill-card" data-category="development">
+            <h3>CSS</h3>
+            <p>Responsive layouts and visual design</p>
+        </article>
+
+        <article class="skill-card" data-category="development">
+            <h3>JavaScript</h3>
+            <p>Interactivity and DOM manipulation</p>
+        </article>
+
+        <article class="skill-card" data-category="development">
+            <h3>Python</h3>
+            <p>Programming and problem-solving</p>
+        </article>
+
+        <article class="skill-card" data-category="tools">
+            <h3>Git &amp; GitHub</h3>
+            <p>Version control and collaboration</p>
+        </article>
+
+        <article class="skill-card" data-category="tools">
+            <h3>VS Code</h3>
+            <p>Development and debugging</p>
+        </article>
+
+        <article class="skill-card" data-category="design">
+            <h3>Miro</h3>
+            <p>Planning and visual organisation</p>
+        </article>
+
+        <article class="skill-card" data-category="design">
+            <h3>Blender</h3>
+            <p>Exploring 3D modelling</p>
+        </article>
+
+    </div>
+
+    <a href="about.html#skills" class="read-more">
+        More about my skills &rarr;
+    </a>
+
+</section>
+
+    </main>
+
+   <footer class="site-footer">
+
+    <div class="footer-heading">
+        <h2>Diana Korsunska</h2>
+        <p class="footer-subtitle">Personal Portfolio</p>
+        <p class="footer-quote">
+            Still learning, still building, always curious.
+        </p>
+    </div>
+
+    <div class="footer-grid">
+
+        <div class="footer-column">
+            <h3>Explore</h3>
+            <a href="index.html">Home</a>
+            <a href="about.html">About &amp; Skills</a>
+            <a href="projects.html">Projects</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Connect</h3>
+
+            <a href="https://github.com/"
+               target="_blank" rel="noopener noreferrer">
+                GitHub &#8599;
+            </a>
+
+            <a href="https://www.linkedin.com/"
+               target="_blank" rel="noopener noreferrer">
+                LinkedIn &#8599;
+            </a>
+
+            <a href="projects.html#contact">Contact</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Information</h3>
+            <p>Goldsmiths</p>
+            <p>University of London</p>
+            <p>CW2 &bull; 2026</p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+        <p>
+            &copy; <span id="footer-year"></span>
+            Diana Korsunska
+        </p>
+
+        <button id="back-to-top">
+            Back to top &uarr;
+        </button>
+
+    </div>
+
+</footer>
+
+
+</body>
+</html>
