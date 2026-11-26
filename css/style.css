@@ -1278,20 +1278,3 @@ body.paw-active {
         scale: 1.3;
     }
 }
-
-.fishing-pond .fish {
-    cursor: url("../assets/images/paw1.png") 16 16,
-            crosshair;
-}
-
-@media (prefers-reduced-motion: reduce) {
-
-    .fishing-paw {
-        animation: none;
-        opacity: 0.8;
-    }
-
-    .fish {
-        transition: none;
-    }
-}
