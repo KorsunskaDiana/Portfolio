@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    //FOUC prevention
+    <meta name="color-scheme" content="light dark">
+<script>
+document.querySelector('meta[name="color-scheme"]').content = localStorage.getItem("color-scheme") ?? "light dark";
+</script>
+
     <title>CW2 Interactive website</title>
 
     <link rel="stylesheet" href="css/style.css">
@@ -265,7 +272,7 @@
                 LinkedIn &#8599;
             </a>
 
-            <a href="projects.html#contact">Contact</a>
+            <a href="contact.html">Contact</a>
         </div>
 
         <div class="footer-column">

@@ -159,79 +159,83 @@ if (catGallery) {
 
 }
 
-const fishingPond = document.getElementById("fishing-pond");
-const fishStart = document.getElementById("fish-start");
-const fishMessage = document.getElementById("fish-message");
-const fishScore = document.getElementById("fish-score");
-const fishTime = document.getElementById("fish-time");
-const fishBest = document.getElementById("fish-best");
-
-if (fishingPond && fishStart && fishMessage &&
-    fishScore && fishTime && fishBest) {
-
-    let fishList = [];
-    let gameRunning = false;
-
-    let score = 0;
-    let timeLeft = 30;
-    let bestScore = 0;
-
-    let movementInterval;
-    let countdownInterval;
-
-    // LOAD PERSONAL BEST
-
-    try {
-        bestScore = Number(
-            localStorage.getItem("fishingBest")
-        ) || 0;
-    } catch {
-        bestScore = 0;
-    }
-
-    fishBest.textContent = bestScore;
-
-
-    // RANDOM FISH MOVEMENT
-
-    function moveFish(fish) {
-
-        const maxX = Math.max(
-            0, fishingPond.clientWidth - fish.offsetWidth
-        );
-
-        const maxY = Math.max(
-            0, fishingPond.clientHeight - fish.offsetHeight
-        );
-
-        const x = Math.random() * maxX;
-        const y = Math.random() * maxY;
-
-        fish.style.left = x + "px";
-        fish.style.top = y + "px";
-    }
-
 
     // paw
 
-    function fishingPaw(x, y) {
+const pawToggle = document.getElementById("paw-toggle");
+const pawClear = document.getElementById("paw-clear");
+const pawLabel = document.getElementById("paw-label");
+const pawCounter = document.getElementById("paw-counter");
+
+if (pawToggle && pawClear && pawLabel && pawCounter) {
+
+    let pawActive = false;
+    let pawCount = 0;
+
+    function setPawMode(active) {
+
+        pawActive = active;
+
+        document.body.classList.toggle("paw-active", pawActive);
+
+        pawToggle.setAttribute("aria-pressed", String(pawActive));
+
+        pawLabel.textContent = pawActive
+            ? "Deactivate paw"
+            : "Activate paw";
+    }
+
+    pawToggle.addEventListener("click", () => {
+        setPawMode(!pawActive);
+    });
+
+    document.addEventListener("click", event => {
+
+        if (!pawActive) return;
+
+        if (event.target.closest(
+            "button, a, input, textarea, select, summary, label"
+        )) return;
 
         const paw = document.createElement("img");
 
         paw.src = "assets/images/paw1.png";
         paw.alt = "";
 
-        paw.classList.add("fishing-paw");
+        paw.classList.add("paw-print");
 
-        paw.style.left = x + "px";
-        paw.style.top = y + "px";
+        const size = 35 + Math.random() * 20;
+        const rotation = Math.random() * 80 - 40;
 
-        fishingPond.appendChild(paw);
+        paw.style.width = size + "px";
+        paw.style.left = event.pageX + "px";
+        paw.style.top = event.pageY + "px";
 
-        setTimeout(() => {
+        paw.style.transform =
+            `translate(-50%, -50%) rotate(${rotation}deg)`;
+
+        document.body.appendChild(paw);
+
+        pawCount++;
+
+        pawCounter.textContent = `Paw prints: ${pawCount}`;
+    });
+
+    pawClear.addEventListener("click", () => {
+
+        document.querySelectorAll(".paw-print").forEach(paw => {
             paw.remove();
-        }, 600);
-    }
+        });
 
+        pawCount = 0;
+
+        pawCounter.textContent = "Paw prints: 0";
+    });
+
+    document.addEventListener("keydown", event => {
+
+        if (event.key === "Escape") {
+            setPawMode(false);
+        }
+    });
 }
-    

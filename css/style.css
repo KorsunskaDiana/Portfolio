@@ -1056,225 +1056,100 @@ main {
 }
 
 
-body.paw-active {
-    cursor: url("../assets/images/paw.svg") 16 16,
-            crosshair;
+
+
+/*Dark mode toggle*/
+:root {
+  color-scheme: light dark;
+
+  &:has(> head > meta[name="color-scheme"][content="dark"]) {
+    color-scheme: dark;
+  }
+  &:has(> head > meta[name="color-scheme"][content="light"]) {
+    color-scheme: light;
+  }
 }
 
-.paw-print {
-    position: absolute;
-    pointer-events: none;
-    user-select: none;
-    z-index: 100;
-    opacity: 0.65;
-    animation: pawAppear 0.25s ease-out;
-}
-
-@keyframes pawAppear {
-    from {
-        opacity: 0;
-        scale: 0.4;
-    }
-
-    to {
-        opacity: 0.65;
-        scale: 1;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .paw-print {
-        animation: none;
-    }
-
-    .paw-controls button {
-        transition: none;
-    }
-}
-
-
-
-.fishing-section {
+/*cat*/
+.supervisor-section {
     text-align: center;
-    padding: 45px 15px;
-    border-bottom: 4px double #181818;
+    padding: 40px 0;
 }
 
-.fishing-section h2 {
+.supervisor-section h2 {
     font-size: clamp(28px, 4vw, 45px);
     margin: 15px 0;
 }
 
-.fishing-subtitle {
+.supervisor-section p {
+    max-width: 750px;
+    margin: 15px auto;
+    line-height: 1.8;
+}
+
+.supervisor-subtitle {
     font-style: italic;
     color: #666666;
-    margin-bottom: 30px;
 }
 
-.fishing-statistics {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    border-top: 4px double #181818;
-    border-bottom: 1px solid #181818;
-    padding: 20px 0;
-    margin-bottom: 20px;
-}
-
-.fishing-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.fishing-stat:not(:last-child) {
-    border-right: 1px solid #BBBBBB;
-}
-
-.fishing-stat span {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.fishing-stat strong {
-    font-size: clamp(24px, 4vw, 40px);
-    font-weight: normal;
-    font-variant-numeric: tabular-nums;
-}
-
-.fishing-pond {
-    position: relative;
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-    background-color: #E1E9E5;
-    border: 1px solid #81958B;
-    box-sizing: border-box;
-}
-
-#fish-message {
+.paw-print {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    margin: 0;
-    font-style: italic;
-    color: #405E53;
+    width: 50px;
+    height: 50px;
+    display: block;
+    visibility: visible;
     pointer-events: none;
+    user-select: none;
+    z-index: 9999;
+    opacity: 0.65;
+    object-fit: contain;
+    border: none;
+}
+.paw-controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0;
 }
 
-.fishing-controls {
-    margin-top: 20px;
-}
-
-#fish-start {
-    background-color: #181818;
-    color: #F7F5EF;
+.paw-controls button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: transparent;
     border: 1px solid #181818;
-    padding: 12px 30px;
+    color: #181818;
     font-family: inherit;
     font-size: 15px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s;
 }
 
-#fish-start:hover {
-    background-color: #A51C30;
+#paw-toggle img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
 }
 
-#fish-start:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+.paw-controls button:hover {
+    background-color: #EAE7DF;
 }
 
-#fish-start:focus-visible {
+#paw-toggle[aria-pressed="true"] {
+    border-color: #A51C30;
+    color: #A51C30;
+    background-color: #EAE7DF;
+}
+
+.paw-controls button:focus-visible {
     outline: 2px solid #A51C30;
     outline-offset: 4px;
 }
 
-.fishing-instructions {
-    font-size: 13px;
+#paw-counter {
+    font-size: 14px;
     color: #666666;
-    margin-top: 15px;
-}
-
-@media (max-width: 600px) {
-
-    .fishing-pond {
-        height: 280px;
-    }
-
-    .fishing-stat span {
-        font-size: 10px;
-        letter-spacing: 0.5px;
-    }
-}
-
-
-
-.fish {
-    position: absolute;
-    width: 70px;
-    height: 45px;
-    padding: 0;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-
-    transition: left 1.5s linear,
-                top 1.5s linear;
-}
-
-.fish img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    pointer-events: none;
-    user-select: none;
-}
-
-.fish:hover img {
-    filter: brightness(1.15);
-}
-
-.fish:focus-visible {
-    outline: 2px dashed #A51C30;
-    outline-offset: 3px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .fish {
-        transition: none;
-    }
-}
-
-
-.fishing-paw {
-    position: absolute;
-    width: 55px;
-    height: 55px;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 5;
-    animation: fishingStamp 0.6s ease-out forwards;
-}
-
-@keyframes fishingStamp {
-
-    0% {
-        opacity: 0;
-        scale: 0.5;
-    }
-
-    25% {
-        opacity: 0.9;
-        scale: 1;
-    }
-
-    100% {
-        opacity: 0;
-        scale: 1.3;
-    }
 }
