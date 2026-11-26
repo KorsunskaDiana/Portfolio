@@ -742,9 +742,6 @@ main {
         font-size: 16px;
     }
 
-    .projects-introduction {
-        font-size: 15px;
-    }
 
     .project-stat {
         padding: 8px;
@@ -1055,21 +1052,6 @@ main {
     margin: 30px 0 0;
 }
 
-
-
-
-/*Dark mode toggle*/
-:root {
-  color-scheme: light dark;
-
-  &:has(> head > meta[name="color-scheme"][content="dark"]) {
-    color-scheme: dark;
-  }
-  &:has(> head > meta[name="color-scheme"][content="light"]) {
-    color-scheme: light;
-  }
-}
-
 /*cat*/
 .supervisor-section {
     text-align: center;
@@ -1152,4 +1134,153 @@ main {
 #paw-counter {
     font-size: 14px;
     color: #666666;
+}
+
+
+/*4*/
+
+
+.contact-heading {
+    text-align: center;
+    padding: 25px 0 30px;
+    border-bottom: 4px double #181818;
+}
+
+.contact-heading h2 {
+    font-size: clamp(35px, 6vw, 65px);
+    margin: 15px 0;
+}
+
+.contact-subtitle {
+    font-size: 18px;
+    font-style: italic;
+    color: #666666;
+}
+
+.contact-section {
+    max-width: 650px;
+    margin: 40px auto;
+}
+
+.contact-introduction {
+    text-align: center;
+    font-size: 17px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+#contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.form-field {
+    margin-bottom: 25px;
+}
+
+.form-field label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #AAAAAA;
+    border-radius: 0;
+    background-color: transparent;
+    color: #181818;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.form-field select option {
+    background-color: #F7F5EF;
+    color: #181818;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    outline: 2px solid #A51C30;
+    outline-offset: 2px;
+}
+
+.contact-submit,
+#close-popup {
+    display: block;
+    margin: 30px auto 15px;
+    padding: 14px 25px;
+    border: 1px solid #181818;
+    background-color: #181818;
+    color: #F7F5EF;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.contact-submit:hover,
+#close-popup:hover {
+    background-color: #A51C30;
+}
+
+.contact-submit:focus-visible,
+#close-popup:focus-visible {
+    outline: 2px solid #A51C30;
+    outline-offset: 4px;
+}
+
+.contact-note {
+    text-align: center;
+    font-size: 12px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+
+/* CONFIRMATION POP-UP */
+
+#contact-popup {
+    width: 90%;
+    max-width: 450px;
+    padding: 35px;
+    border: 4px double #181818;
+    background-color: #F7F5EF;
+    color: #181818;
+    text-align: center;
+}
+
+#contact-popup::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#contact-popup h2 {
+    font-size: 30px;
+    margin: 15px 0;
+}
+
+#contact-popup p {
+    line-height: 1.7;
+}
+
+.letter-symbol {
+    font-size: 50px;
+    color: #A51C30;
+}
+
+@media (max-width: 600px) {
+
+    #contact-popup {
+        padding: 25px;
+    }
+
+    .contact-introduction {
+        font-size: 15px;
+    }
+
+    .contact-subtitle {
+        font-size: 16px;
+    }
 }

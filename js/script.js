@@ -239,3 +239,37 @@ if (pawToggle && pawClear && pawLabel && pawCounter) {
         }
     });
 }
+
+/*4*/
+
+const contactForm = document.getElementById("contact-form");
+const contactPopup = document.getElementById("contact-popup");
+const closePopup = document.getElementById("close-popup");
+const popupTitle = document.getElementById("popup-title");
+
+if (contactForm && contactPopup && closePopup && popupTitle) {
+
+    contactForm.addEventListener("submit", event => {
+
+        event.preventDefault();
+
+        const contactName = document
+            .getElementById("contact-name")
+            .value.trim();
+
+        popupTitle.textContent =
+           `Thank you, ${contactName}!`;
+
+        contactPopup.showModal();
+
+        contactForm.reset();
+
+    });
+
+    closePopup.addEventListener("click", () => {
+
+        contactPopup.close();
+
+    });
+
+}
